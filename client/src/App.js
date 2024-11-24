@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CssBaseline, Container } from '@mui/material'
+import { CssBaseline, Container,Box } from '@mui/material'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
 import { Navigation } from './components'
@@ -10,6 +10,8 @@ function App () {
     <BrowserRouter>
       <CssBaseline />
       <Navigation />
+      <Box sx={{backgroundColor: (theme) =>theme.palette.grey[100]}}>
+
       <Container maxWidth='xl'>
         <Routes>
           <Route path='/' element={<Home />} />
@@ -17,6 +19,7 @@ function App () {
           <Route path='reccomend' element={<Reccomend />} />
         </Routes>
       </Container>
+      </Box>
     </BrowserRouter>
   )
 }
