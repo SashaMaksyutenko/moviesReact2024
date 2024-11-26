@@ -40,7 +40,7 @@ const CardMenu = ({ onAddClick }) => {
                 }}
             >
                 <MenuItem onClick={onAddClick}>
-                    Add
+                    Select
                 </MenuItem>
             </Menu>
         </>
