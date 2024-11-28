@@ -15,5 +15,6 @@ const config = {
     options: {},
   },
   staticDirs: ["../public"],
+  features:{modernInlineRender:true}
 };
 export default config;

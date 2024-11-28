@@ -5,8 +5,9 @@
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
+    "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^6.1.8",
-    "@mui/material": "^6.1.8",
+    "@mui/material": "^6.1.9",
     "@storybook/addons": "^7.6.20",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -15,6 +16,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
+    "storybook-addon-material-ui": "^0.9.0-alpha.24",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@chromatic-com/storybook": "^3.2.2",
     "@storybook/addon-essentials": "8.4.5",
     "@storybook/addon-interactions": "8.4.5",
