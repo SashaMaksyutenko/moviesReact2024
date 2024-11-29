@@ -3,7 +3,16 @@ export const movies=[
         "_id": "6748b04091233037957cb125",
         "image": "https://media.themoviedb.org/t/p/w440_and_h660_face/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
         "releaseDate": "2018-04-16T11:30:10 -03:00",
-        "title": "Orbin"
+        "title": "Orbin",
+        "genres":[{
+          id:1,
+          name:'Drama'
+        },
+      {
+        id:2,
+        name:'Story'
+      }],
+      "runtime":148
       },
       {
         "_id": "6748b040a484192a266ab2f7",

@@ -1,10 +1,9 @@
 import React from 'react';
-import MovieCard from '../components/MovieCard';
-import {movies} from './stub'
 import { MovieCardSelected } from '../components';
+import {movies} from './stub'
 // Default export defining metadata for the story
 export default {
-  title: 'Card/Movie Card',
+  title: 'Card/Movie Card Selected',
   component: MovieCardSelected,
   parameters: {
     layout: 'centered', // Centers the component in the Canvas
