@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { CardMenu } from '../CardMenu';
+import CardMenu from '../../components/CardMenu';
 import MenuItem from '@mui/material/MenuItem';
 const CardInfo = styled(CardContent)(({theme}) => ({
     '&:last-child': {

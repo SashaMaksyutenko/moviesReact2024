@@ -1,8 +1,8 @@
 import Home from './Home'
 import Settings from './Settings'
-import Reccomend from './Reccomend'
+import Recommend from './Recommend'
 export{
     Home,
     Settings,
-    Reccomend
+    Recommend
 }
