@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
 import { CssBaseline, Container,Box } from '@mui/material'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
 import { Navigation } from './components'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home, Settings,Recommend } from './pages'
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 function App () {
   const client = new ApolloClient({
     uri: 'http://localhost:4000/',
     cache: new InMemoryCache(),
+    connectToDevTools: true
   });
   return (
     <ApolloProvider client={client}>
