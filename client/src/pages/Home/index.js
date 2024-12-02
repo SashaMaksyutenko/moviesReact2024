@@ -2,28 +2,13 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import { styled } from '@mui/material/styles'
-import {
-  MovieCard,
-  MovieCardSelected,
-  SelectedMoviesForm
-} from '../../components'
+import { MovieCard, SelectedMoviesSection } from '../../components'
 import { useQuery } from '@apollo/client'
 import { MOVIES_QUERY } from './queries'
 import { useMovies } from '../../hooks/useMovies'
 import Pagination from '@mui/material/Pagination'
 import { useState } from 'react'
 import Stack from '@mui/material/Stack'
-const SelectedMovies = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  color: theme.palette.text.secondary,
-  height: 'calc(100vh - 120px)',
-  position: 'sticky',
-  top: theme.spacing(2),
-  display: 'flex',
-  flexDirection: 'column'
-}))
 const MoviesList = styled(Stack)(({ theme }) => ({
   overflow: 'scroll',
   height: '100%'
@@ -40,7 +25,8 @@ const Home = () => {
   if (error) {
     return 'Error'
   }
-  const pagesCount = data?.movies?.totalPages <= 500 ? data?.movies?.totalPages : 500;
+  const pagesCount =
+    data?.movies?.totalPages <= 500 ? data?.movies?.totalPages : 500
   return (
     <Box sx={{ flexGrow: 1, marginTop: 2 }}>
       <Grid container spacing={2}>
@@ -75,20 +61,10 @@ const Home = () => {
           </Paper>
         </Grid>
         <Grid item xs={12} md={4}>
-          <SelectedMovies>
-            <MoviesList spacing={2}>
-              {selectedMovies.map(movie => (
-                <MovieCardSelected
-                  key={movie.id}
-                  movie={movie}
-                  onCardDelete={deleteMovie}
-                />
-              ))}
-            </MoviesList>
-            <Box pt={2}>
-              <SelectedMoviesForm />
-            </Box>
-          </SelectedMovies>
+          <SelectedMoviesSection
+            selectedMovies={selectedMovies}
+            deleteMovie={deleteMovie}
+          />
         </Grid>
       </Grid>
     </Box>
