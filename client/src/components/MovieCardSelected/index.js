@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import CardMenu from '../CardMenu';
 const MovieCardSelected = ({ movie, onCardDelete }) => {
     return (
-        <Card sx={{ display: 'flex' }}>
+        <Card sx={{ display: 'flex',minHeight: '164px' }}>
             <CardMedia
                 component="img"
                 sx={{ width: 100 }}
