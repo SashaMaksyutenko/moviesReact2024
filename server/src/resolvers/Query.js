@@ -1,6 +1,5 @@
 const { getPopular, getDetails } = require('../modules/movies');
 const { Movie } = require('../modules/movies/entities/Movie')
-const { getPopular } = require('../modules/movies');
 async function movies(parent, args) {
     const data = await getPopular(args.page);
     return data;
