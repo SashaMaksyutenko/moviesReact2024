@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useCallback } from 'react'
 import {
   Box,
   AppBar,
@@ -9,7 +9,6 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  MenuItem,
   ListItemText,
   ListItemButton,
   Hidden,
@@ -18,9 +17,18 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import SettingsIcon from '@mui/icons-material/Settings'
-import { Link as RouterLink} from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
+import { AppContext } from '../../context/appContext'
+import { LOCALES } from '../../const'
 const Navigation = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false)
+  const { state, dispatch } = useContext(AppContext)
+  const setLanguage = useCallback(locale => {
+    dispatch({
+      type: 'setLocale',
+      locale
+    })
+  }, [])
   const list = () => (
     <Box sx={{ width: 250 }} role='presentation'>
       <List>
@@ -53,15 +61,40 @@ const Navigation = () => {
               <MenuIcon />
             </IconButton>
           </Hidden>
-            <Link component={RouterLink} to='/' sx={{ flexGrow: 1 }}>
-          <Typography variant='h6' component='div' sx={{ color:'white',flexGrow: 1 }}>
-            Movie Recommendation
-          </Typography>
-            </Link>
+          <Link component={RouterLink} to='/' sx={{ flexGrow: 1 }}>
+            <Typography
+              variant='h6'
+              component='div'
+              sx={{ color: 'white', flexGrow: 1 }}
+            >
+              Movie Recommendation
+            </Typography>
+          </Link>
+          <Box>
+            {state.locale}
+            <Button
+              disabled={state.locale === LOCALES.ENGLISH}
+              sx={{ my: 2, color: 'white' }}
+              onClick={() => setLanguage(LOCALES.ENGLISH)}
+            >
+              ENGLISH
+            </Button>
+            <Button
+              disabled={state.locale === LOCALES.UKRANIAN}
+              sx={{ my: 2, color: 'white' }}
+              onClick={() => setLanguage(LOCALES.UKRANIAN)}
+            >
+              Українська
+            </Button>
+          </Box>
           <Box sx={{ display: { xs: 'none', lg: 'flex' } }}>
-              <Button component={RouterLink} to='settings' sx={{ my: 2, color: 'white', display: 'block' }}>
-                Settings
-              </Button>
+            <Button
+              component={RouterLink}
+              to='settings'
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              Settings
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
