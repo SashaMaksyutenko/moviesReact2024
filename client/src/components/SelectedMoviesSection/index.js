@@ -1,8 +1,10 @@
+import { useState, useContext } from 'react';
 import { styled } from '@mui/material/styles'
-import { useState } from 'react'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
+import { FormattedMessage } from "react-intl";
+import { AppContext } from '../../providers/appContext';
 import Typography from '@mui/material/Typography'
 import {
   MovieCardSelected,
@@ -35,11 +37,10 @@ const NoMovies = styled(Box)(({ theme }) => ({
 const SelectedMoviesSection = ({ selectedMovies, deleteMovie }) => {
   const [listName, setListName] = useState('')
   const [link, setLink] = useState('')
+  const { state } = useContext(AppContext);
   const onSubmit = ({ listName }) => {
     const ids = selectedMovies.map(({ id }) => id)
-    const link = `${
-      window.location.host
-    }/recommend?title=${listName}&ids=${ids.join()}`
+    const link = `${window.location.host}/recommend?title=${listName}&locale=${state.locale}&ids=${ids.join()}`;
     setLink(link)
     setListName(listName)
   }
@@ -60,7 +61,7 @@ const SelectedMoviesSection = ({ selectedMovies, deleteMovie }) => {
             src={noMoviesImageSrc}
           />
           <Typography variant='h5' mt={2}>
-            No selected movies
+            <FormattedMessage id="no_selected_movies"/>
           </Typography>
         </NoMovies>
       </SelectedMovies>

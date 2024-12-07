@@ -18,8 +18,10 @@ import {
 import MenuIcon from '@mui/icons-material/Menu'
 import SettingsIcon from '@mui/icons-material/Settings'
 import { Link as RouterLink } from 'react-router-dom'
-import { AppContext } from '../../context/appContext'
 import { LOCALES } from '../../const'
+import { FormattedMessage } from 'react-intl'
+import { AppContext } from '../../providers/appContext'
+import translate from '../../utils/translate'
 const Navigation = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false)
   const { state, dispatch } = useContext(AppContext)
@@ -38,7 +40,7 @@ const Navigation = () => {
               <ListItemIcon>
                 <SettingsIcon />
               </ListItemIcon>
-              <ListItemText primary='Settings' />
+              <ListItemText primary={translate('navigation.settings')} />
             </ListItemButton>
           </ListItem>
         </Link>
@@ -67,7 +69,7 @@ const Navigation = () => {
               component='div'
               sx={{ color: 'white', flexGrow: 1 }}
             >
-              Movie Recommendation
+              <FormattedMessage id='navigation.home' />
             </Typography>
           </Link>
           <Box>
@@ -93,7 +95,7 @@ const Navigation = () => {
               to='settings'
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
-              Settings
+              <FormattedMessage id='navigation.settings' />
             </Button>
           </Box>
         </Toolbar>

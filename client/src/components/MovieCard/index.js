@@ -9,6 +9,7 @@ import CardMenu from '../../components/CardMenu';
 import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
+import { FormattedMessage } from "react-intl";
 const CardInfo = styled(CardContent)(({theme}) => ({
     '&:last-child': {
         paddingBottom: theme.spacing(2),
@@ -37,7 +38,7 @@ const MovieCard = ({movie,onCardSelect,isPreviewMode }) => {
             {!isPreviewMode && (
                 <CardMenu>
                     <MenuItem onClick={() => onCardSelect(movie)}>
-                        Select
+                        <FormattedMessage id="select"/>
                     </MenuItem>
                 </CardMenu>
             )}
